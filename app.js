@@ -14,3 +14,17 @@ app.listen(3000, function() {
 // for(var i=0; i<100; i++) {
 //     console.log('end of server code...')
 // }
+
+// setting static directory
+app.use(express.static('public'));
+
+// URL routing
+app.get('/', function(req, res) {
+    // res.send("<h1>hi friend!</h1>")
+    res.sendFile(__dirname + "/public/main.html")
+});
+
+app.get('/main', function(req, res) {
+    // res.send("<h1>hi friend!</h1>")
+    res.sendFile(__dirname + "/public/main.html")
+});
