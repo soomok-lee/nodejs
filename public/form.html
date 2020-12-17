@@ -6,7 +6,7 @@
         <title>email form</title>
     </head>
     <body>
-        <form action="email_post" method="post">
+        <form action="/email/form" method="post">
             name : <input type="text" name="name"></br>
             email : <input type="text" name="email"></br> 
             <input type="submit" value="submit">
@@ -17,8 +17,8 @@
         
         <script>
             document.querySelector('.ajaxsend').addEventListener('click', function() {
-                var inputdata = document.forms[0].elements[1].value; 
-                sendAjax('ajax_send_email', inputdata);
+                var inputdata = document.forms[0].elements[1].value; // email
+                sendAjax('/email/ajax', inputdata);
             })
             function sendAjax(url, data){
                 var data = {'email' : data}; // object
@@ -33,8 +33,13 @@
                 xhr.addEventListener('load', function() {
                     // console.log(xhr.responseText);
                     var result = JSON.parse(xhr.responseText);
-                    if(result.result !== "ok") return;
-                    document.querySelector(".result").innerHTML = result.email;
+                    var resultDiv = document.querySelector(".result");
+                    if(result.result !== "ok")
+                        resultDiv.innerHTML = "your email is not found."
+                    else resultDiv.innerHTML = "welcome! " + result.name;
+
+                    // if(result.result !== "ok") return;
+                    // document.querySelector(".result").innerHTML = result.name;
                 });
             }
         </script>
