@@ -1,8 +1,9 @@
 /*
 MySQL 
 C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql.exe -uroot -p<PASSWORD> -h 127.0.0.1 -P 3316 // port 명시
-CREATE DATABASE nodejsDB // DB 생성
-use nodejsDB // DB 지정
+mysql -uroot -p<password> // port default 3306
+CREATE DATABASE nodeDB // DB 생성
+use nodeDB // DB 지정
 // TABLE 생성
 CREATE TABLE Users(
     id INT(11) NOT NULL AUTO_INCREMENT, 
@@ -25,6 +26,8 @@ npm install mysql --save
 https://expressjs.com
 
 // connection issue
+error : 'Client does not support authentication protocol requested by server; consider upgrading MySQL client'
+
 https://medium.com/codespace69/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server-consider-8afadc2385e2
 the problem is mysqljs in Node (the package you install with npm install mysql and use it in your Node code) doesn't support the new default authentication method of MySQL 8, yet.
 
@@ -34,10 +37,10 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'ella';
 var mysql = require('mysql') // mysql
 var connection = mysql.createConnection({
     host:'localhost',
-    port: 3316,
+    port: 3306,
     user: 'root',
     password: 'ella',
-    database: 'nodejsdb',
+    database: 'nodeDB',
     insecureAuth : true
 })
 // connection.connect()
