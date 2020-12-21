@@ -6,14 +6,15 @@
         <title>Login</title>
     </head>
     <body>
+        <h1>login page</h1>
         <form action="/login" method="post">
             email : <input type="text" name="email"></br> 
             password : <input type="password" name="password"></br> 
             <!-- <input type="submit"> -->
         </form>
 
-        <button class="ajaxsend">ajaxsend</button>
-        <div class="result"></div>
+        <div class="result"></div></br>
+        <button class="ajaxsend">login</button>
         
         <script>
             document.querySelector('.ajaxsend').addEventListener('click', function(e) {

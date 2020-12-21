@@ -7,10 +7,17 @@
     </head>
     <body>
         <h1>main page</h1>
-        <h3>welcome ! <%= email %> ! your ID is <%= id %> !</h3>
+        <%if (email != null) { %>
+            <h3>welcome ! <%= email %> ! </h3> 
+            <!-- your ID is <%= id %> ! -->
+        <% } %>
 
         <img src="images/flower.jpg" alt="" width="300px;">
 
-        <div><a href="/logout">logout</a></div>
+        <%if (email != null) { %>
+            <div><a href="/logout">logout</a></div>
+        <% } else { %>
+            <div><a href="/login">login</a> / <a href="/join">join</a></div>
+        <% } %>
     </body>
 </html>

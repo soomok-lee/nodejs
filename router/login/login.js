@@ -41,7 +41,7 @@ passport.use('local-login', new LocalStrategy({
     var query = mydb.query('select * from users where email=?', [email], function(err, rows){
         if(err) return done(err);
 
-        if(rows.length){
+        if(rows.length && rows[0].password == password){
             // console.log(email, rows[0].id)
             return done(null, {'email': email, 'id': rows[0].id})
         } else {

@@ -11,11 +11,8 @@ var logout = require('./logout/logout')
 // URL routing
 router.get('/', function(req, res) { // root
     // console.log("main.html loaded")
-    res.sendFile(path.join(__dirname, "../public/main.html"))
-    // res.render('main.ejs', {
-    //     id: id,
-    //     email: email
-    // })
+    // res.sendFile(path.join(__dirname, "../public/main.html"))
+    res.redirect('/main')
 });
 
 router.use('/main', main)

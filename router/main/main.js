@@ -7,15 +7,17 @@ var path = require('path') // 상대 경로
 // routing
 router.get('/', function(req, res) {
     // get user from session
-    console.log('main.js loaded', req.user)
-    if(!req.user)
-        res.render('login.ejs');
-
-    var id = req.user.id;
-    var email = req.user.email;
+    var id;
+    var email;
     
+    if(req.user) {
+        id = req.user.id;
+        email = req.user.email;
+    }  
     // res.sendFile(path.join(__dirname ,"../../public/main.html"))
+    console.log('main.ejs loaded')
     res.render('main.ejs', {'id': id, 'email': email});
+    
 });
 
 // export
