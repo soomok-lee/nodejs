@@ -12,4 +12,56 @@
   - Node.js favors asynchronous APIs because it is single-threaded.
   
 
+## Express Framework
+- Node.js web application framework
+  ```
+  npm install express
+  ```
+- application
+  - express instance
+    ```
+    const express = require('express');
+    const app = express();
 
+    app.listen(3000, function() {
+      console.log('server is running.');
+    })
+    ```
+  - middleware
+    - logging middleware
+      ```
+      function logger(req, res, next) {
+        console.log('logger.');
+        next();
+      }
+      
+      app.use(logger);
+      ```
+    - third party middleware
+      ```
+      const morgan = require('morgan');
+      app.use(morgan('dev'));
+      ```
+    - error middleware
+      ```
+      function commonmw(req, res, next) {
+        console.log('commonmw');
+        next(new Error('error occured.'));
+      }
+
+      function errormw(err, req, res, next) {
+        console.log(err.message);
+        // handle the error here.
+        next();
+      }
+
+      app.use(commonmw);
+      app.us(errormw);
+      ```
+  - routing
+    - Router
+  - waiting requests status
+  - request object
+    - req.params(), req.query(), req.body() ...
+  - response object
+    - res.send(), res.stauts(), res.json() ...
