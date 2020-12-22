@@ -7,6 +7,7 @@ var email = require('./email/email') // router
 var join = require('./join/join') // router
 var login = require('./login/login')
 var logout = require('./logout/logout')
+var user = require('./user/index')
 
 // URL routing
 router.get('/', function(req, res) { // root
@@ -20,5 +21,6 @@ router.use('/email', email)
 router.use('/join', join)
 router.use('/login', login)
 router.use('/logout', logout)
+router.use('/users', user) // users
 
 module.exports = router;
