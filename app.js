@@ -1,4 +1,11 @@
-// npm init
+// npm init // create a file, package.json (including dependencies) 
+/* package.json
+** the dependencies in package.json help others install modules (npm install).
+** npm start
+"scripts": {
+    "start": "node app.js"
+}
+*/
 // npm install express --save
 // npm install nodemon --save // 자동으로 파일의 변화 감지하여 재시작
 // --save(project) vs -g(global)
@@ -19,10 +26,8 @@ var LocalStrategy = require('passport-local').Strategy // passport-local
 var session = require('express-session') // express-session
 var flash = require('connect-flash') // connect-flash
 
-const hostname = '127.0.0.1'
-const port = 3000;
-app.listen(port, hostname, function() {
-    console.log('start! express server on port ${port}');
+app.listen(3000, function() {
+    console.log('start! express server on port 3000');
 });
 
 app.use(express.static('public')); // setting static directory

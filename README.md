@@ -15,7 +15,7 @@
 ## Express Framework
 - Node.js web application framework
   ```
-  npm install express
+  npm install express --save
   ```
 - application
   - express instance
@@ -39,6 +39,8 @@
       ```
     - third party middleware
       ```
+      npm install morgan --save
+
       const morgan = require('morgan');
       app.use(morgan('dev'));
       ```
@@ -62,6 +64,6 @@
     - Router
   - waiting requests status
   - request object
-    - req.params(), req.query(), req.body() ...
+    - req.params(), req.query(), req.body(), ...
   - response object
-    - res.send(), res.stauts(), res.json() ...
+    - res.send(), res.stauts(), res.json(), ...
