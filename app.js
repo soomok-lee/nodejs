@@ -19,8 +19,10 @@ var LocalStrategy = require('passport-local').Strategy // passport-local
 var session = require('express-session') // express-session
 var flash = require('connect-flash') // connect-flash
 
-app.listen(3000, function() {
-    console.log("start! express server on port 3000")
+const hostname = '127.0.0.1'
+const port = 3000;
+app.listen(port, hostname, function() {
+    console.log('start! express server on port ${port}');
 });
 
 app.use(express.static('public')); // setting static directory

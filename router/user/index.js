@@ -5,7 +5,7 @@ var router = express.Router(); // execute Router
 var path = require('path') // 상대 경로
 var mydb = require('../../mydb');
 
-// 1. GET list
+// 1. GET users
 router.get('/', function(req,res){
     var responseData = {};
 
@@ -21,7 +21,7 @@ router.get('/', function(req,res){
     })
 });
 
-// 2. GET
+// 2. GET user
 router.get('/:id', function(req,res){
     var id = req.params.id;
     console.log('id', id);
@@ -54,7 +54,7 @@ router.post('/', function(req, res) {
     })
 });
 
-// 4. UPDATE
+// 4. UPDATE 
 router.put('/:id', function(req, res) {
     var id = req.params.id;
     var name = req.body.name;
