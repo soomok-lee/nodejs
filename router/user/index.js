@@ -50,7 +50,8 @@ router.post('/', function(req, res) {
     var sql = {email: email, name: name, password: password};
     var query = mydb.query('insert into users set ?', sql, function(err, rows){
         if(err) throw err;
-        return res.json({'result': 1});
+        
+        res.json({'result': 1});
     })
 });
 
@@ -63,7 +64,8 @@ router.put('/:id', function(req, res) {
     var query = mydb.query('update users set name=? where id=?', sql, function(err, rows){
         if(err) throw err;
         console.log(rows);
-        return res.json({'result': 1});
+        
+        res.json({'result': 1});
     })
 });
 
